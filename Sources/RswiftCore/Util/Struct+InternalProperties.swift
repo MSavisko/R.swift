@@ -25,7 +25,7 @@ extension Struct {
         isStatic: true,
         name: "applicationLocale",
         typeDefinition: .inferred(Type._Locale),
-        value: "hostingBundle.preferredLocalizations.first.flatMap(Locale.init) ?? Locale.current")
+        value: "hostingBundle.preferredLocalizations.first.flatMap(Locale.init) ?? Locale.current"),
       Let(
         comments: [],
         accessModifier: .filePrivate,
