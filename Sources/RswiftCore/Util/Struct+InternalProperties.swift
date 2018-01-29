@@ -18,7 +18,7 @@ extension Struct {
         isStatic: true,
         name: "hostingBundle",
         typeDefinition: .inferred(Type._Bundle),
-        value: "Bundle(for: R.Class.self)"),
+        value: "Bundle(path: Bundle.main.path(forResource: hostingBundleLanguage, ofType: \"lproj\") ?? "") ?? Bundle(for: R.Class.self)"),
       Let(
         comments: [],
         accessModifier: .filePrivate,
@@ -26,6 +26,13 @@ extension Struct {
         name: "applicationLocale",
         typeDefinition: .inferred(Type._Locale),
         value: "hostingBundle.preferredLocalizations.first.flatMap(Locale.init) ?? Locale.current")
+      Let(
+        comments: [],
+        accessModifier: .filePrivate,
+        isStatic: true,
+        name: "hostingBundleLanguage",
+        typeDefinition: .inferred(Type._String),
+        value: "UserDefaults.standard.string(forKey: \"Rswfit.hostingBundle.language\")")
     ]
 
     let internalClasses = [
